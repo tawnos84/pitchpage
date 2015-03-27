@@ -18,6 +18,19 @@
     <link href="css/tabs.css" rel="stylesheet">
     <link href="css/process.css" rel="stylesheet">
 
+    <!-- Graphs -->
+    <link rel="stylesheet" href="css/chartist.min.css">
+    <script src="js/chartist.min.js"></script>
+
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+  <script src="js/morris.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+  <script src="lib/example.js"></script>
+  <link rel="stylesheet" href="lib/example.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+  <link rel="stylesheet" href="css/morris.css">
+
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -31,6 +44,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
   </head>
 
   <body id="page-top" class="index">
@@ -74,7 +89,7 @@
             <div class="intro-text">
                 <p>
                 <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/123320206?color=ff9933&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/123332814?color=ff9933&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
                 <a href="#portfolio" class="page-scroll btn btn-xl">Learn more</a>
             </div>
         </div>
@@ -178,13 +193,13 @@
             </li>
             <li role="presentation">
                 <a href="#benefits" aria-controls="anna" role="tab" data-toggle="tab">
-                     <img class="img-circle" src="img/money.jpg" />
+                     <img class="img-circle" src="img/benefits.png" />
                     <p><b>Benefits</b></p>
                 </a>
             </li>
             <li role="presentation">
                 <a href="#additional" aria-controls="wafer" role="tab" data-toggle="tab">
-                    <img class="img-circle" src="img/money.jpg" />
+                    <img class="img-circle" src="img/additional.png" />
                     <p><b>Additional services</b></p>
                 </a>        
             </li>
@@ -278,12 +293,62 @@
   <section id="sales">
   <div class="container">
             <div class="row">
+                <div class="col-lg-12 text-center"><h1>Sales</h1></div>
+                
+                <div class="col-lg-6 col-md-12 text-center">
+                <div id="graph"></div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 text-center">
+                <div id="graph2"></div>
+                </div>
+
                 <div class="col-lg-12 text-center">
-                <h1>Sales</h1>
-                <div>
+                All numbers above are projections and for each year are based on the assumpiton of a full year of trading.
+                </div>
             </div>
   </div>
   </section>
+
+  <!--Sales Diagram -->
+  <script id="code">
+// Use Morris.Bar
+Morris.Line({
+  element: 'graph',
+  data: [
+    {x: '2015', y: 127, z: -131},
+    {x: '2016', y: 570, z: -165},
+    {x: '2017', y: 1780, z: -50},
+    {x: '2018', y: 5700, z: 630},
+    {x: '2019', y: 13000, z: 1970}
+  ],
+  postUnits: '$',
+  goals: [0,0],
+  ymin: '-1000',
+  xkey: 'x',
+  ykeys: ['y', 'z'],
+  labels: ['Revenue (in 000s)', 'Op. Margin (in 000s)']
+}).on('click', function(i, row){
+  console.log(i, row);
+});
+
+Morris.Bar({
+  element: 'graph2',
+  data: [
+    {x: '2015', y: 7.20, z: 15},
+    {x: '2016', y: 32.40, z: 45},
+    {x: '2017', y: 100.80, z: 105},
+    {x: '2018', y: 270.00, z: 225},
+    {x: '2019', y: 610.00, z: 465}
+
+  ],
+  xkey: 'x',
+  ykeys: ['y', 'z'],
+  labels: ['Orders(in 00s)', 'Registered Chefs']
+}).on('click', function(i, row){
+  console.log(i, row);
+});
+</script>
 
   <!-- Vision page -->
   <section id="vision">
@@ -292,6 +357,22 @@
                 <div class="col-lg-12 text-center">
                 <h1>Vision</h1>
                 <div>
+                <div class="col-lg-6">
+                 <iframe width="500" height="400" class="embed-responsive-item" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.29travels.com/getmap.php?j=GBMXUSARBRCLCOECPAPEUY&k=&hm=&f=&c=cc0099ff&cf=ccff0000&w=500&h=400&pd=none"></iframe>
+                </div>
+                <div class="col-lg-6">
+                  <p class="lead"><strong>We want to become the <strong>platform</strong> for organising chefs around the world</p>
+                  <hr>
+                  <p class="lead">By 2020 we want to be the <strong>number one</strong> player in the most important LATAM countries and have entered the US, Mexico and the UK.</p>
+                  <hr>
+                  <p>We want to grow our offering and include all services in addition to chefs that they require for hosting their events, e.g.:
+                    <ul>
+                      <li>Waiters</li>
+                      <li>Drinks</li>
+                      <li>Decoration</li>
+                  </ul></p>
+                  
+                </div>
             </div>
   </div>
   </section>
@@ -316,7 +397,7 @@
                             </li>
                             <li><a href="https://www.facebook.com/andrea.barone.94651"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="http://uk.linkedin.com/in/andreabarone1989"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://uk.linkedin.com/in/andreabarone1989"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -376,7 +457,7 @@
                             </li>
                             <li><a href="https://www.facebook.com/kai.zimmer"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="http://uk.linkedin.com/in/zimmerkai"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://uk.linkedin.com/in/zimmerkai"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -387,11 +468,11 @@
                         <h4>Raul Otero</h4>
                         <p class="text-muted">Perú</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://twitter.com/RaulOteroR"><i class="fa fa-twitter"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://www.facebook.com/raul.otero.9277"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://pe.linkedin.com/in/raulotero"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -399,14 +480,14 @@
                 <div class="col-sm-3">
                     <div class="team-member">
                         <img src="img/team/ricardo.png" class="img-responsive img-circle" alt="">
-                        <h4>Riardo Rodrigues</h4>
+                        <h4>Ricardo Rodrigues</h4>
                         <p class="text-muted">Portugal</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="https://twitter.com/ricardopresa"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="http://uk.linkedin.com/in/ricardopresarodrigues"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://uk.linkedin.com/in/ricardopresarodrigues"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -424,9 +505,9 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/losibaritas"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/losibaritas"><i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -438,6 +519,7 @@
             </div>
         </div>
     </footer>
+
 
 
     <!-- jQuery -->
@@ -457,5 +539,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/agency.js"></script>
+
+   
   </body>
 </html>
